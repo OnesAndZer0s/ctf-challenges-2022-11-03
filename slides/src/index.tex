@@ -1,0 +1,26 @@
+\documentclass{beamer}
+
+\usepackage[pdf]{graphviz}
+
+\title{Crypto Week}
+\author{Michael Zhang}
+\institute{GopherHack 2022-11-03}
+\date{2022}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Sample frame title}
+This is some text in the first frame. This is some text in the first frame. This is some text in the first frame.
+
+   \digraph{abc}{
+      rankdir=LR;
+      a -> b -> c;
+   }
+
+\end{frame}
+
+\end{document}
+
