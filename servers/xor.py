@@ -15,7 +15,7 @@ for i in range(1024):
     print(f"Hex(Original string): {sh}")
 
     e = hexlify(xor(s, k))
-    print(f"Hex(Xor-Encrypted): {e}")
+    print(f"Hex(Xor(Encrypted, Key)): {e}")
 
     ah = input("Hex(Key): ").strip()
     a = unhexlify(ah)
