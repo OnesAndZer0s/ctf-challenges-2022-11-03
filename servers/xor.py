@@ -24,8 +24,9 @@ for i in range(1024):
 
     ah = input("Hex(Key): ").strip()
     a = unhexlify(ah)
-    if a != k: break
+    if a != k:
+        kh = hexlify(k.encode("utf-8"))
+        print(f"Nope, the answer was {kh}")
+        break
 else:
     print("Correct.")
-
-print("Wrong.")

@@ -23,8 +23,8 @@ for i in range(1024):
 
     c = caesar_shift(s, n)
     a = input("Caesar-Shifted String: ").strip()
-    if a != c: break
+    if a != c:
+        print(f"Nope, the answer was {c}")
+        break
 else:
     print("Correct.")
-
-print("Wrong.")

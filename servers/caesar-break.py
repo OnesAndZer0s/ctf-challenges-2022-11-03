@@ -22,7 +22,9 @@ for i in range(1024):
     print(caesar_shift(f"This string is rotated by an unknown amount: {s}", n))
 
     a = input("Original string: ").strip()
-    if a != s: break
+    if a != s:
+        print(f"Nope, the answer was {s}")
+        break
 else:
     print("Correct.")
 
