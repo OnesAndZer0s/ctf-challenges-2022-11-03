@@ -1,0 +1,19 @@
+service caesar_break
+{
+    disable = no
+    type        = UNLISTED
+    wait        = no
+    server      = /code/caesar-break.py
+    socket_type = stream
+    protocol    = tcp
+    user        = root
+    port        = 5011
+    bind        = 0.0.0.0
+    # safety options
+    flags       = REUSE
+    per_source	= 50 # the maximum instances of this service per source IP address
+    rlimit_cpu	= 1 # the maximum number of CPU seconds that the service may use
+    rlimit_as  = 1M # the Address Space resource limit for the service
+    nice        = 18
+}
+

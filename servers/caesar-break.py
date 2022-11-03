@@ -19,11 +19,10 @@ def caesar_shift(s, n):
 for i in range(100):
     n = random.randint(1, 25)
     s = "".join(random.choices(string.ascii_letters, k=25))
-    print(f"Shift this string by {n} letters: {s}")
+    print(caesar_shift(f"This string is rotated by an unknown amount: {s}", n))
 
-    c = caesar_shift(s, n)
     a = input().strip()
-    if a != c: break
+    if a != s: break
 else:
     print("Correct.")
 

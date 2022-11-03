@@ -1,14 +1,11 @@
 version: "3"
 
 services:
-  rev:
+  servers:
     build:
       dockerfile: xinetd.Dockerfile
     ports:
-      - "5010:5010"
-      - "5011:5011"
-      - "5012:5012"
-      - "5013:5013"
+      - "5000-5100:5000-5100"
     restart: always
 
     volumes:
