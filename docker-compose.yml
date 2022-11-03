@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  rev:
+    build:
+      dockerfile: xinetd.Dockerfile
+    ports:
+      - "5010:5010"
+      - "5011:5011"
+      - "5012:5012"
+      - "5013:5013"
+    restart: always
+
+    volumes:
+      - ./servers:/code:ro
+      - ./xinetd:/etc/xinetd.d:ro
