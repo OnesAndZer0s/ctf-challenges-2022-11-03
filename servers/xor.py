@@ -23,7 +23,7 @@ for i in range(1024):
     print(f"Hex(Xor(Encrypted, Key)): {e}")
 
     ah = input("Hex(Key): ").strip()
-    a = unhexlify(ah)
+    a = unhexlify(ah).decode("utf-8")
     if a != k:
         kh = hexlify(k.encode("utf-8"))
         print(f"Nope, the answer was {kh}")
