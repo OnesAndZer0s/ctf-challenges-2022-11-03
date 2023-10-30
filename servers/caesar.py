@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import base64
-import random
 import string
 
 def caesar_encode(plaintext, key):
