@@ -14,7 +14,8 @@ def vig_encode(plaintext, key):
             ciphertext += chr((ord(c) - ord("a") + shift) % 26 + ord("a"))
     return ciphertext
 
-FLAG = "glasses"
+INFO = "glasses"
+FLAG = "sight"
 KEY = "eye"
 print("\nYou find a note written by a visionary. It reads:\n")
 
@@ -30,7 +31,7 @@ print("|                              /           ")
 print("|      I                       \_________  ")
 print("|          need                          \_")
 
-string = vig_encode(FLAG, KEY)
+string = vig_encode(INFO, KEY)
 print("|" + " " * ((43 - len(string)) // 2) + string + " " * ((42 - len(string)) // 2) + "|")
 print("|                                          |")
 print("|                       __    _________  __|")
@@ -39,8 +40,8 @@ print("|__/    \___/ \/                           \n")
 
 while True:
     inp = input("What does this visionary need? ").strip()
-    if inp == FLAG:
-        print("Correct.")
+    if inp == INFO:
+        print(f'Correct. gopher{"{"+FLAG+"}"}')
         break
     else:
         print("Wrong.")

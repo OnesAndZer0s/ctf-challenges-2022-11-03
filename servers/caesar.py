@@ -13,7 +13,8 @@ def caesar_encode(plaintext, key):
             ciphertext += chr((ord(c) - ord("a") + key) % 26 + ord("a"))
     return ciphertext
 
-FLAG = "stab wounds"
+INFO = "stab wounds"
+FLAG = "salad"
 KEY = 14
 print("\nYou find a prophetic carving written in marble. It reads:\n")
 
@@ -30,7 +31,7 @@ print("   | | | |                    DIE                      | | | | ")
 print("   | | | |                                             | | | | ")
 print("   | | | |                    BY                       | | | | ")
 print("   | | | |                                             | | | | ")
-string = caesar_encode(FLAG, KEY)
+string = caesar_encode(INFO, KEY)
 print("   | | | |" + " " * ((46 - len(string)) // 2) + string + " " * ((45 - len(string)) // 2) + "| | | |   ")
 print("   | | | |                                             | | | | ")
 print("   | | | |                                             | | | | ")
@@ -40,8 +41,8 @@ print("|___________|                                       |___________|\n")
 
 while True:
     inp = input("How will Caesar die? ").strip()
-    if inp == FLAG:
-        print("Correct.")
+    if inp == INFO:
+        print(f'Correct. gopher{"{"+FLAG+"}"}')
         break
     else:
         print("Wrong.")
