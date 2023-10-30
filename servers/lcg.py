@@ -24,25 +24,42 @@ def lcg(m, a, c, s):
         s = (a * s + c) % m
         yield s
 
-m = random.choice(primes)
-x = random.randint(1, m)
-a = random.randint(10, 15)
-c = random.randint(1, m)
-print(f"Modulus (m): {m}")
-print(f"Multiplier (a): {a}")
-print(f"Increment (c): {c}")
-print(f"Initial state (x): {x}")
-print(f"x(n + 1) = (a * x + c) mod m")
-print()
+g = lcg(1667, 43, 11, 1023)
 
-g = lcg(m, a, c, x)
-for i in range(1024):
-    n = next(g)
-    a = int(input("Next value: ").strip())
-    if a != n:
-        print(f"Nope, the correct value was {n}")
+INFO = "you look stupid"
+FLAG = "congruence"
+print("\nA mathematician slips you a note, thinking you cannot read it. It reads:\n")
+
+print(" ____________________________________")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+
+# shift each character by the next value in the LCG
+string = "".join([chr(ord(c) + next(g)) for c in INFO])
+print("|" + " " * ((40 - len(string)) // 2) + string + " " * ((40 - len(string)) // 2) + "|")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                                    |")
+print("|                 :)                 |")
+print("|                                    |")
+print("|                                    |")
+print("|____________________________________|\n")
+
+while True:
+    inp = input("What does it say? ").strip()
+    if inp == INFO:
+        print(f'Correct. gopher{"{"+FLAG+"}"}')
         break
-else:
-    print("Correct.")
-
-print("Wrong.")
+    else:
+        print("Wrong.")
