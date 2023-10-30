@@ -1,0 +1,19 @@
+service caesar
+{
+    disable = no
+    type        = UNLISTED
+    wait        = no
+    server      = /code/base64.py
+    socket_type = stream
+    protocol    = tcp
+    user        = root
+    port        = 5014
+    bind        = 0.0.0.0
+    # safety options
+    flags       = REUSE
+    per_source	= 50 # the maximum instances of this service per source IP address
+    rlimit_cpu	= 1 # the maximum number of CPU seconds that the service may use
+    rlimit_as  = 1M # the Address Space resource limit for the service
+    nice        = 18
+}
+

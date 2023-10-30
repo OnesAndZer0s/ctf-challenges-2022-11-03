@@ -1,30 +1,47 @@
 #!/usr/bin/env python3
 
+import base64
 import random
 import string
 
-def caesar_shift(s, n):
-    alpha = string.ascii_lowercase + string.ascii_uppercase
-    translated = string.ascii_lowercase[n:] + string.ascii_lowercase[:n] + string.ascii_uppercase[n:] + string.ascii_uppercase[:n]
-    tab = str.maketrans(alpha, translated)
-
-    s2 = ""
-    for c in s:
-        if c in string.ascii_letters:
-            s2 += c.translate(tab)
+def caesar_encode(plaintext, key):
+    ciphertext = ""
+    for c in plaintext:
+        if c.isupper():
+            ciphertext += chr((ord(c) - ord("A") + key) % 26 + ord("A"))
         else:
-            s2 += c
-    return s2
+            ciphertext += chr((ord(c) - ord("a") + key) % 26 + ord("a"))
+    return ciphertext
 
-for i in range(1024):
-    n = random.randint(1, 25)
-    s = "".join(random.choices(string.ascii_letters, k=25))
-    print(f"Shift this string by {n} letters: {s}")
+FLAG = "stab wounds"
+KEY = 14
+print("\nYou find a prophetic carving written in marble. It reads:\n")
 
-    c = caesar_shift(s, n)
-    a = input("Caesar-Shifted String: ").strip()
-    if a != c:
-        print(f"Nope, the answer was {c}")
+print(" ___________                                         ___________ ")
+print("|           |_______________________________________|           |")
+print("|___________|                                       |___________|")
+print("   | | | |                                             | | | | ")
+print("   | | | |                                             | | | | ")
+print("   | | | |                    CAESAR                   | | | | ")
+print("   | | | |                                             | | | | ")
+print("   | | | |                    WILL                     | | | | ")
+print("   | | | |                                             | | | | ")
+print("   | | | |                    DIE                      | | | | ")
+print("   | | | |                                             | | | | ")
+print("   | | | |                    BY                       | | | | ")
+print("   | | | |                                             | | | | ")
+string = caesar_encode(FLAG, KEY)
+print("   | | | |" + " " * ((46 - len(string)) // 2) + string + " " * ((45 - len(string)) // 2) + "| | | |   ")
+print("   | | | |                                             | | | | ")
+print("   | | | |                                             | | | | ")
+print(" __|_|_|_|__                                         __|_|_|_|__ ")
+print("|           |_______________________________________|           |")
+print("|___________|                                       |___________|\n")
+
+while True:
+    inp = input("How will Caesar die? ").strip()
+    if inp == FLAG:
+        print("Correct.")
         break
-else:
-    print("Correct.")
+    else:
+        print("Wrong.")
