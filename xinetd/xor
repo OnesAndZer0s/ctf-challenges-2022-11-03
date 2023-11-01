@@ -7,7 +7,7 @@ service xor
     socket_type = stream
     protocol    = tcp
     user        = root
-    port        = 5012
+    port        = 5022
     bind        = 0.0.0.0
     # safety options
     flags       = REUSE

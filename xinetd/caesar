@@ -7,7 +7,7 @@ service caesar
     socket_type = stream
     protocol    = tcp
     user        = root
-    port        = 5010
+    port        = 5020
     bind        = 0.0.0.0
     # safety options
     flags       = REUSE
